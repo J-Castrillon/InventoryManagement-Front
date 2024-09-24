@@ -5,7 +5,9 @@ import { ProductsType } from "../types";
 
 export const loader = async () => {
   // Funciona como el useEffect(); Carga antes de montar el componente;
-  const products = await getProducts();
+  const request = await getProducts(); 
+  
+  const products =  request !== null ? request : [];
 
   return products;
 };
@@ -44,7 +46,7 @@ export const Products = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => {
+            {products && products.map((product) => {
               return <ProductDetails key={product.id} product={product} />;
             })}
           </tbody>
