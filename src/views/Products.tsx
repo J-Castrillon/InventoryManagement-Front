@@ -7,7 +7,7 @@ export const loader = async () => {
   // Funciona como el useEffect(); Carga antes de montar el componente;
   const request = await getProducts(); 
   
-  const products =  request !== null ? request : [];
+  const products =  request ? request : [];
 
   return products;
 };
@@ -21,7 +21,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 };
 
 export const Products = () => {
-  const products = useLoaderData() as ProductsType; // Ya estan listos para mostrar;
+  const products = useLoaderData() as ProductsType || []; // Ya estan listos para mostrar;
 
   return (
     <div>
