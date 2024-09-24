@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 export const MainLayout = () => {
+  console.log(import.meta.env.VITE_REACT_APP_API_URL); 
   return (
     <div>
       <header className="bg-slate-800">
